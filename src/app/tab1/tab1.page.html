@@ -1,0 +1,93 @@
+<ion-header style="background-color: white; color: black;">
+  <div style="width: 100vw; display: flex; align-items: center; justify-content: center; position: relative; padding: 20px;">
+    <div style="display:flex; flex-direction: column; align-items: center; position: absolute; left: 10px;">
+      <ion-icon style="font-size: 20px;" name="log-out-outline" (click)="signout()"></ion-icon> 
+      <div></div>
+    </div>
+
+    <div style="font-size: 30px">
+      Calender
+    </div>
+  </div>
+</ion-header>
+
+<ion-content style="--background: white; --color: black;">
+  <div style="padding: 20px;">
+    <div style="display: flex; justify-content: space-between; width: calc( 100vw - 20px - 20px ); align-items: center; padding: 20px;">
+      <ion-icon style="color: black; font-size: 20px;" name="chevron-back-outline" (click)="monthdown()"></ion-icon> 
+      <div>{{getFormat(currentMonth, currentYear)| date : "MMMM, yyyy"}}</div>
+      <ion-icon style="color: black; font-size: 20px;" name="chevron-forward-outline" (click)="monthup()"></ion-icon>
+    </div>
+  
+    <div style="display: flex; justify-content: space-between; width: calc( 100vw - 20px - 20px ); align-items: center;">
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Sun
+      </div>
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Mon
+      </div>
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Tue
+      </div>
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Wed
+      </div>
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Thur
+      </div>
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Fri
+      </div>
+      <div style="width: calc( (100vw - 20px - 20px) / 7 ); text-align: center;">
+        Sat
+      </div>
+    </div>
+    
+    <div style="width: 100vw; display: flex; flex-wrap: wrap;">
+      <div style="width: calc( ( 100vw - 20px - 20px ) / 7 ); height: calc(100vw / 7); text-align: center;" *ngFor="let void of createArray(getDay(currentMonth, currentYear)); let i = index">
+        
+      </div>
+  
+      <div (click)="selected = void" style="position: relative; width: calc(( 100vw - 20px - 20px ) / 7 ); height: calc(100vw / 7); display:flex; justify-content: center;align-items: center; text-align: center;" *ngFor="let void of createArray(getDays(currentMonth, currentYear)); let i = index">
+        <div *ngIf="(userInfor.event? userInfor.event[addEightDate(void.date, void.month, void.year)]: false)" style="color:red; position: absolute; z-index: 10;">{{i+1}}</div>
+        <div *ngIf="!(userInfor.event? userInfor.event[addEightDate(void.date, void.month, void.year)]: false)" style="color:black; position: absolute; z-index: 10;">{{i + 1}}</div>
+        <div *ngIf="selected.year == void.year && selected.month == void.month && selected.date == void.date" style="width: 45px; height: 45px;  border-radius: 100%; background-color: lightgrey;"></div>
+      </div>
+  
+    </div>
+  
+    <div style="padding: 20px; display: flex; width: calc( 100% - 20px - 20px );">
+      {{getFormat2(selected.date, selected.month, selected.year)| date : "dd MMMM yyyy"}}
+    </div>
+  
+    <div *ngIf="!(userInfor.event?userInfor.event[addEightDate(selected.date, selected.month, selected.year)]: false)" style="background-color: white; color: black;">
+      <ion-item style="--background: white; --color:black;">
+        <ion-textarea [(ngModel)]="event" placeholder="Enter more information here..."></ion-textarea>
+      </ion-item>
+
+      <ion-item style="--background: white; --color: black; --padding-top:20px;">
+        <ion-label>Select Time</ion-label>
+        <ion-datetime [(ngModel)]="eventTime" displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+  
+      <div style="display: flex; justify-content: center; padding: 20px;">
+        <ion-button style="width: calc( 100% - 20px - 20px );" color="primary" (click)="add()">Add</ion-button>
+      </div> 
+    </div>
+  
+    <div style="display: flex; justify-content: space-between; width: calc( 100% - 20px - 20px ); padding: 0px 20px;">
+      <div *ngIf="(userInfor.event?userInfor.event[addEightDate(selected.date, selected.month, selected.year)]: false)" >
+        {{userInfor.event[addEightDate(selected.date, selected.month, selected.year)].text}}
+      </div>
+      <div *ngIf="(userInfor.event?userInfor.event[addEightDate(selected.date, selected.month, selected.year)]: false)" >
+        {{userInfor.event[addEightDate(selected.date, selected.month, selected.year)].eventTime | date:'hh:mm'}}
+      </div>
+    </div>
+    <div *ngIf="(userInfor.event?userInfor.event[addEightDate(selected.date, selected.month, selected.year)]: false)" style="display: flex; justify-content: center; padding-top: 20px;">
+      <ion-button style="width: calc( 100% - 20px - 20px );" color="primary" shape="round">Edit</ion-button>
+    </div>
+    <div *ngIf="(userInfor.event?userInfor.event[addEightDate(selected.date, selected.month, selected.year)]: false)" style="display: flex; justify-content: center; padding-top: 20px;">
+      <ion-button (click)="addNew()" style="width: calc( 100% - 20px - 20px );" color="danger" shape="round">Add</ion-button>
+    </div>
+  </div>
+</ion-content>

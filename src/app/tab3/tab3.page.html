@@ -1,0 +1,100 @@
+<!-- <ion-header style="--background: url(https://www.jakpost.travel/wimages/large/187-1878076_in-the-clarity-of-night-night-sky-flat.png);">
+  <div style="width: 100vw; display: flex; align-items: center; justify-content: center; position: relative; padding: 20px;">
+    <div style="display:flex; flex-direction: column; align-items: center; position: absolute; left: 10px;">
+      <ion-icon style="font-size: 30px;" name="menu-outline"></ion-icon> 
+    </div>
+
+    <div style="font-size: 30px">
+      Weather
+    </div>
+
+    <div style="position: absolute; right: 10px;">
+      <ion-icon style="font-size: 30px;" name="add-circle-outline"></ion-icon>
+    </div>
+  </div>
+</ion-header> -->
+
+<ion-content style="--background: url(https://www.jakpost.travel/wimages/large/187-1878076_in-the-clarity-of-night-night-sky-flat.png);">
+  <div style="width: calc( 100vw ); display: flex; align-items: center; justify-content: center; position: relative; padding: 20px 0px;">
+    <div style="display:flex; flex-direction: column; align-items: center; position: absolute; left: 10px; margin-left: 20px; margin-top: 20px;">
+      <ion-icon style="font-size: 30px;" name="menu-outline"></ion-icon> 
+    </div>
+
+    <!-- <div style="font-size: 30px">
+      Weather
+    </div> -->
+
+    <div style="position: absolute; right: 10px; margin-right: 20px; margin-top: 20px;">
+      <ion-icon style="font-size: 30px;" name="add-circle-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div style="padding: 20px;">
+
+    <div style="display: flex; justify-content: center; align-items: center; font-size: 50px; padding-top: 80px;">
+      {{ place }}
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; color: lightgrey; padding-top: 20px;">
+      Tuesday January 10, 2020
+    </div>
+    <div style="padding-top:10px;font-size: 70px; font-weight: bold; display: flex; justify-content: center; align-items: center;">
+      {{ temperature }}
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      ----------------
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; font-weight: bold; padding-top: 30px;">
+      {{ weatherCondition }}
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; padding-top: 10px; font-weight: bold;">
+      <span style="font-weight: bold;">15</span> <span>&#8451;</span> / <span style="font-weight: bold;">20</span> <span>&#8451;</span>
+    </div>
+
+    <!-- <div style="text-align:center; display: flex; justify-content: center; align-items: center; background-color: white; border-radius: 100%; width: 40px; height: 40px;">
+      <ion-icon style="color: black; width: 30px; height: 30px;" name="trash-bin-outline"></ion-icon>
+    </div> -->
+
+    <div style="display: flex; justify-content: space-between; width: calc( 100vw - 20px - 20px ); padding-top: 120px;">
+      <div>
+        <div style="display: flex; justify-content: center;">
+          <ion-icon style="font-size: 20px;" name="cloud-outline"></ion-icon>
+        </div>
+        <div style="display: flex; justify-content: center; font-size: 15px;">
+          15 <span>&#8451;</span> / 20 <span>&#8451;</span>
+        </div>
+        <div style="display: flex; justify-content: center; font-weight: bold;">
+          Today
+        </div>
+      </div>
+
+      <div>
+        <div style="display: flex; justify-content: center;">
+          <ion-icon style="font-size: 20px;" name="thunderstorm-outline"></ion-icon>
+        </div>
+        <div style="display: flex; justify-content: center; font-size: 15px;">
+          20 <span>&#8451;</span>
+        </div>
+        <div style="display: flex; justify-content: center; font-weight: bold;">
+          Friday
+        </div>
+      </div>
+
+      <div>
+        <div style="display: flex; justify-content: center;">
+          <ion-icon style="font-size: 20px;" name="rainy-outline"></ion-icon>
+        </div>
+        <div style="display: flex; justify-content: center; font-size: 15px;">
+          20 <span>&#8451;</span>
+        </div>
+        <div style="display: flex; justify-content: center; font-weight: bold;">
+          Saturday
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</ion-content>
